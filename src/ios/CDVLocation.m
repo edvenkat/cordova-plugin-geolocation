@@ -100,9 +100,9 @@
  [self startLocation:__highAccuracyEnabled];
  //[self.locationManager stopUpdatingLocation];
    // [self.locationManager startUpdatingLocation];
-    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
+    //CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
  
-   [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+  // [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
    // [self.commandDelegate sendPluginResult:result callbackId:callbackId];
    // result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:returnInfo];
      //[result setKeepCallbackAsBool:keepCallback];   
@@ -112,8 +112,8 @@
 {
   __locationStarted = NO;
  [self startLocation:__highAccuracyEnabled];
- CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
- [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+// CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
+// [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
   
 // [self.locationManager stopUpdatingLocation];
    // [self.locationManager startUpdatingLocation];
