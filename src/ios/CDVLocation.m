@@ -381,9 +381,9 @@
 //iOS8+
 -(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status
 {
-    if(!__locationStarted){
+   // if(!__locationStarted){
         [self startLocation:__highAccuracyEnabled];
-    }
+    //}
 }
 
 - (void)dealloc
