@@ -96,7 +96,8 @@
 
 - (void)requestAlwaysAuthorization:(CDVInvokedUrlCommand*)command
 {
- [self.locationManager  requestAlwaysAuthorization];
+ __locationStarted = NO;
+ [self startLocation:__highAccuracyEnabled];
  //[self.locationManager stopUpdatingLocation];
    // [self.locationManager startUpdatingLocation];
     CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
@@ -109,7 +110,8 @@
 
 - (void)requestWhenInUseAuthorization:(CDVInvokedUrlCommand*)command
 {
-   [self.locationManager requestWhenInUseAuthorization];
+  __locationStarted = NO;
+ [self startLocation:__highAccuracyEnabled];
  CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
  [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
   
@@ -119,9 +121,7 @@
 
 - (void)startLocation:(BOOL)enableHighAccuracy
 {
-   self.locationManager = nil;
-    self.locationManager = [[CLLocationManager alloc] init];
-    self.locationManager.delegate = self; // Tells the location manager to send updates to this object
+ 
     if (![self isLocationServicesEnabled]) {
         [self returnLocationError:PERMISSIONDENIED withMessage:@"Location services are not enabled."];
         return;
