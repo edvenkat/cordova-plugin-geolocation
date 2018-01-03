@@ -77,9 +77,11 @@ var geolocation = {
    * @param {PositionOptions} options     The options for getting the position data. (OPTIONAL)
    */
     requestAlwaysAuthorization:function() {
+        alert("requestAlwaysAuthorization");
          exec(null, null, "Geolocation", "requestAlwaysAuthorization");
     },
     requestWhenInUseAuthorization:function() {
+        alert("requestWhenInUseAuthorization");
           exec(null, null, "Geolocation", "requestWhenInUseAuthorization");
     },
     getCurrentPosition:function(successCallback, errorCallback, options) {
