@@ -76,26 +76,7 @@ var geolocation = {
    * @param {Function} errorCallback      The function to call when there is an error getting the heading position. (OPTIONAL)
    * @param {PositionOptions} options     The options for getting the position data. (OPTIONAL)
    */
-    requestAlwaysAuthorization:function() {
-         var win = function(p) {
-            alert(p);
-        };
-        var fail = function(e) {
-            alert(e)
-        };
-       // alert("requestAlwaysAuthorization");
-         exec(win, fail, "Geolocation", "requestAlwaysAuthorization");
-    },
-    requestWhenInUseAuthorization:function() {
-       // alert("requestWhenInUseAuthorization");
-          var win = function(p) {
-            alert(p);
-        };
-        var fail = function(e) {
-            alert(e)
-        };
-          exec(win, fail, "Geolocation", "requestWhenInUseAuthorization");
-    },
+   
     getCurrentPosition:function(successCallback, errorCallback, options) {
         argscheck.checkArgs('fFO', 'geolocation.getCurrentPosition', arguments);
         options = parseParameters(options);
