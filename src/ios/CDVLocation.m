@@ -97,15 +97,28 @@
 - (void)requestAlwaysAuthorization
 {
  [self.locationManager  requestAlwaysAuthorization];
- [self.locationManager stopUpdatingLocation];
-    [self.locationManager startUpdatingLocation];
+ //[self.locationManager stopUpdatingLocation];
+   // [self.locationManager startUpdatingLocation];
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@"test"];
+ 
+   for (NSString* callbackId in self.locationData.locationCallbacks) {
+        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+    }
+   // [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+   // result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:returnInfo];
+     //[result setKeepCallbackAsBool:keepCallback];   
 }
 
 - (void)requestWhenInUseAuthorization
 {
    [self.locationManager requestWhenInUseAuthorization];
- [self.locationManager stopUpdatingLocation];
-    [self.locationManager startUpdatingLocation];
+ CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@"test"];
+ 
+   for (NSString* callbackId in self.locationData.locationCallbacks) {
+        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
+    }
+// [self.locationManager stopUpdatingLocation];
+   // [self.locationManager startUpdatingLocation];
 }
 
 - (void)startLocation:(BOOL)enableHighAccuracy
