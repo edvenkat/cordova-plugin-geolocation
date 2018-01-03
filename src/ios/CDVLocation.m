@@ -123,6 +123,9 @@
 
 - (void)startLocation:(BOOL)enableHighAccuracy
 {
+   self.locationManager = nil;
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self; // Tells the location manager to send updates to this object
     if (![self isLocationServicesEnabled]) {
         [self returnLocationError:PERMISSIONDENIED withMessage:@"Location services are not enabled."];
         return;
