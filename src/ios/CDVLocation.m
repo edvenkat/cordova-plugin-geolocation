@@ -97,11 +97,15 @@
 - (void)requestAlwaysAuthorization
 {
  [self.locationManager  requestAlwaysAuthorization];
+ [self.locationManager stopUpdatingLocation];
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)requestWhenInUseAuthorization
 {
    [self.locationManager requestWhenInUseAuthorization];
+ [self.locationManager stopUpdatingLocation];
+    [self.locationManager startUpdatingLocation];
 }
 
 - (void)startLocation:(BOOL)enableHighAccuracy
