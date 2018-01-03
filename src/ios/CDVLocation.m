@@ -94,6 +94,16 @@
     }
 }
 
+- (void)requestAlwaysAuthorization
+{
+ [self.locationManager  requestAlwaysAuthorization];
+}
+
+- (void)requestWhenInUseAuthorization
+{
+   [self.locationManager requestWhenInUseAuthorization];
+}
+
 - (void)startLocation:(BOOL)enableHighAccuracy
 {
     if (![self isLocationServicesEnabled]) {
