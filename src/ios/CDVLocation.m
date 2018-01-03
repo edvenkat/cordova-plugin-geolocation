@@ -94,29 +94,25 @@
     }
 }
 
-- (void)requestAlwaysAuthorization
+- (void)requestAlwaysAuthorization:(CDVInvokedUrlCommand*)command
 {
  [self.locationManager  requestAlwaysAuthorization];
  //[self.locationManager stopUpdatingLocation];
    // [self.locationManager startUpdatingLocation];
-    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@"test"];
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
  
-   for (NSString* callbackId in self.locationData.locationCallbacks) {
-        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
-    }
+   [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
    // [self.commandDelegate sendPluginResult:result callbackId:callbackId];
    // result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:returnInfo];
      //[result setKeepCallbackAsBool:keepCallback];   
 }
 
-- (void)requestWhenInUseAuthorization
+- (void)requestWhenInUseAuthorization:(CDVInvokedUrlCommand*)command
 {
    [self.locationManager requestWhenInUseAuthorization];
- CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:@"test"];
- 
-   for (NSString* callbackId in self.locationData.locationCallbacks) {
-        [self.commandDelegate sendPluginResult:result callbackId:callbackId];
-    }
+ CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
+ [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
+  
 // [self.locationManager stopUpdatingLocation];
    // [self.locationManager startUpdatingLocation];
 }
