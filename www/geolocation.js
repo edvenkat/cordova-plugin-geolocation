@@ -83,11 +83,11 @@ var geolocation = {
         var fail = function(e) {
             alert(e)
         };
-        alert("requestAlwaysAuthorization");
+       // alert("requestAlwaysAuthorization");
          exec(win, fail, "Geolocation", "requestAlwaysAuthorization");
     },
     requestWhenInUseAuthorization:function() {
-        alert("requestWhenInUseAuthorization");
+       // alert("requestWhenInUseAuthorization");
           var win = function(p) {
             alert(p);
         };
