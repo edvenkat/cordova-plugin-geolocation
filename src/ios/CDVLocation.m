@@ -94,31 +94,6 @@
     }
 }
 
-- (void)requestAlwaysAuthorization:(CDVInvokedUrlCommand*)command
-{
- __locationStarted = NO;
- [self startLocation:__highAccuracyEnabled];
- //[self.locationManager stopUpdatingLocation];
-   // [self.locationManager startUpdatingLocation];
-    //CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
- 
-  // [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-   // [self.commandDelegate sendPluginResult:result callbackId:callbackId];
-   // result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:returnInfo];
-     //[result setKeepCallbackAsBool:keepCallback];   
-}
-
-- (void)requestWhenInUseAuthorization:(CDVInvokedUrlCommand*)command
-{
-  __locationStarted = NO;
- [self startLocation:__highAccuracyEnabled];
-// CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"test"];
-// [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-  
-// [self.locationManager stopUpdatingLocation];
-   // [self.locationManager startUpdatingLocation];
-}
-
 - (void)startLocation:(BOOL)enableHighAccuracy
 {
  
@@ -148,7 +123,7 @@
     NSUInteger code = [CLLocationManager authorizationStatus];
    // if (code == kCLAuthorizationStatusNotDetermined && ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])) { //iOS8+
         __highAccuracyEnabled = enableHighAccuracy;
-        
+        /*
         if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]) {
             [self.locationManager  requestAlwaysAuthorization];
         } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
@@ -156,14 +131,15 @@
         } else {
             NSLog(@"[Warning] No NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription key is defined in the Info.plist file.");
         }
-       /* if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
+        */
+        if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
             [self.locationManager requestWhenInUseAuthorization];
         } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]) {
             [self.locationManager  requestAlwaysAuthorization];
         } else {
             NSLog(@"[Warning] No NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription key is defined in the Info.plist file.");
         }
-        */
+        
        // return;
     //}
 #endif
