@@ -165,7 +165,7 @@
             NSLog(@"[Warning] No NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription key is defined in the Info.plist file.");
         }
         */
-        return;
+       // return;
     //}
 #endif
 
