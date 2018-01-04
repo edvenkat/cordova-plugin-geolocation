@@ -144,18 +144,12 @@
         return;
     }
  //
-     if (code == kCLAuthorizationStatusAuthorizedWhenInUse) { //iOS8+
+   else if (code == kCLAuthorizationStatusAuthorizedWhenInUse) { //iOS8+
         __highAccuracyEnabled = enableHighAccuracy;
         //
         if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]) {
             [self.locationManager  requestAlwaysAuthorization];
-        } else if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationWhenInUseUsageDescription"]){
-            [self.locationManager requestWhenInUseAuthorization];
-        } else {
-            NSLog(@"[Warning] No NSLocationAlwaysUsageDescription or NSLocationWhenInUseUsageDescription key is defined in the Info.plist file.");
         }
-        //
-       // return;
     }
     //
 #endif
