@@ -121,7 +121,7 @@
 
 #ifdef __IPHONE_8_0
     NSUInteger code = [CLLocationManager authorizationStatus];
-    if (code == kCLAuthorizationStatusNotDetermined && ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])) { //iOS8+
+    if ((code == kCLAuthorizationStatusNotDetermined || code == kCLAuthorizationStatusAuthorizedWhenInUse) && ([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)] || [self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)])) { //iOS8+
         __highAccuracyEnabled = enableHighAccuracy;
         //
         if([[NSBundle mainBundle] objectForInfoDictionaryKey:@"NSLocationAlwaysUsageDescription"]) {
